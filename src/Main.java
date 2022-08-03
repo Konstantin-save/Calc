@@ -14,6 +14,11 @@ public class Main {
         String str = sc.nextLine(); //сканируем строку
         String[] words = str.split(" ");
 
+        //Гораздо проще считывать первый символ до пробела. Он считывается с помощью sc.next() :
+
+        //Int a= Integer.valueOf(sc.next()) ;
+
+        //Затем точно также считывается второй символ, третий, и сколько нужно в задаче
         for (int i = 0; i < words.length; i++) {
             int[] numArr = new int[0];
             numArr[i] = Integer.parseInt(words[i]);
