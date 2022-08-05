@@ -1,29 +1,39 @@
 import java.util.Scanner;
-
 import static java.lang.Integer.parseInt;
 
 public class Main {
-
     String[] arab = {"10", "1", "2", "3", "4", "5", "6", "7", "8", "9"};
     String[] roman = {"X", "IX", "VIII", "VII", "VI", "V", "IV", "III", "II", "I"};
 
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
-        System.out.println("Р’РІРµРґРёС‚Рµ РІС‹СЂР°Р¶РµРЅРёРµ: ");
-        String str = sc.nextLine(); //СЃРєР°РЅРёСЂСѓРµРј СЃС‚СЂРѕРєСѓ
+        System.out.println("Введите выражение: ");
+        String str = sc.nextLine(); //сканируем строку
         String[] words = str.split(" ");
 
-        //Р“РѕСЂР°Р·РґРѕ РїСЂРѕС‰Рµ СЃС‡РёС‚С‹РІР°С‚СЊ РїРµСЂРІС‹Р№ СЃРёРјРІРѕР» РґРѕ РїСЂРѕР±РµР»Р°. РћРЅ СЃС‡РёС‚С‹РІР°РµС‚СЃСЏ СЃ РїРѕРјРѕС‰СЊСЋ sc.next() :
+        int length = words.length;
+        if (length != 3) {
+            System.out.print("throws Exception");
 
-        //Int a= Integer.valueOf(sc.next()) ;
 
-        //Р—Р°С‚РµРј С‚РѕС‡РЅРѕ С‚Р°РєР¶Рµ СЃС‡РёС‚С‹РІР°РµС‚СЃСЏ РІС‚РѕСЂРѕР№ СЃРёРјРІРѕР», С‚СЂРµС‚РёР№, Рё СЃРєРѕР»СЊРєРѕ РЅСѓР¶РЅРѕ РІ Р·Р°РґР°С‡Рµ
-        for (int i = 0; i < words.length; i++) {
-            int[] numArr = new int[0];
-            numArr[i] = Integer.parseInt(words[i]);
-            int num1 = Integer.parseInt(words[0]), num2 = Integer.parseInt(words[2]);
-            System.out.println((num1 ) + (num2));
+
+
+
+
+
+
+
+            //Гораздо проще считывать первый символ до пробела. Он считывается с помощью sc.next() :
+            //Int a= Integer.valueOf(sc.next()) ;
+            //Затем точно также считывается второй символ, третий, и сколько нужно в задаче
+
+
+      //  for (int i = 0; i < words.length; i++) {
+         //   int[] numArr = new int[0];
+           // numArr[i] = Integer.parseInt(words[i]);
+            //int num1 = Integer.parseInt(words[0]), num2 = Integer.parseInt(words[2]);
+            //System.out.println((num1 ) + (num2));
 
         }
     }
