@@ -18,8 +18,6 @@ Input:
 
 Output:
 3
-
-
 Input:
 VI / III
 
