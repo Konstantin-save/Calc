@@ -8,8 +8,8 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
-        System.out.println("Введите выражение: ");
-        String str = sc.nextLine(); //сканируем строку
+        System.out.println("Р’РІРµРґРёС‚Рµ РІС‹СЂР°Р¶РµРЅРёРµ: ");
+        String str = sc.nextLine(); //СЃРєР°РЅРёСЂСѓРµРј СЃС‚СЂРѕРєСѓ
         String[] words = str.split(" ");
 
         int length = words.length;
@@ -24,10 +24,10 @@ public class Main {
 
 
 
-            //Гораздо проще считывать первый символ до пробела. Он считывается с помощью sc.next() :
-            //Int a= Integer.valueOf(sc.next()) ;
-            //Затем точно также считывается второй символ, третий, и сколько нужно в задаче
 
+            //СЃС‡РёС‚С‹РІР°С‚СЊ С„Р°Р№Р» РґРѕ РїСЂРѕР±РµР»Р° СЃ РїРѕРјРѕС‰СЊСЋ sc.next() :
+            //Int a= Integer.valueOf(sc.next()) ;
+            //С‚Р°Рє Р¶Рµ РѕСЃС‚Р°Р»СЊРЅС‹Рµ СЃРёРјРІРѕР»С‹
 
       //  for (int i = 0; i < words.length; i++) {
          //   int[] numArr = new int[0];
