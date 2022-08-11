@@ -11,7 +11,15 @@ public class Main {
         if (length != 3) {
             throw new LengthExeption("Формат математической операции не удовлетворяет заданию - два операнда и один оператор");
         }     //выбрасываем созданное в методе LengthExeption исключение и передаем ему в аргументы описание
+
+        
+         int num1 = Integer.parseInt(words[0]), num2 = Integer.parseInt(words[2]);
+        System.out.println((num1)+(num2));
+
+
     }
+    
+
 }
 
 
@@ -32,47 +40,6 @@ public class Main {
             //Int a= Integer.valueOf(sc.next()) ;
             //так же остальные символы
 
-      //  for (int i = 0; i < words.length; i++) {
-         //   int[] numArr = new int[0];
-           // numArr[i] = Integer.parseInt(words[i]);
-            //int num1 = Integer.parseInt(words[0]), num2 = Integer.parseInt(words[2]);
-            //System.out.println((num1 ) + (num2));
-//
-//
-//
-//
-//
-//atic boolean isDigit(String words) throws NumberFormatException {
-//
-//arseInt(words);
-//eturn true;
-//ch (NumberFormatException e) {
-//eturn false;
-//
-//
-//
-//
-//
-
 
 //        while(!sc.hasNext())
-//
-//
 
-//
-
-
-
-
-
-
-
-
-//        int numArr[] = new int[3];
-//        for (int i = 0; i < words.length; i++) {
-//            numArr[i] = Integer.parseInt(words[i]);
-//
-//            int num1 = Integer.parseInt(words[0]), num2 = Integer.parseInt(words[2]);
-//            System.out.println((num1 ) + (num2));
-
-            // System.out.println(numArr[i]);
