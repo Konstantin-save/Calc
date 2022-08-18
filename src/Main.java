@@ -1,11 +1,9 @@
-
+import Ar.ArrayUtils;
 
 import java.util.Scanner;
 
-import static java.util.regex.Pattern.matches;
-
 public class Main {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws LengthExeption {
         Scanner sc = new Scanner(System.in);
         System.out.println("Введите выражение: ");
         String str = sc.nextLine(); //сканируем строку
@@ -17,32 +15,18 @@ public class Main {
         }     //выбрасываем созданное в методе LengthExeption исключение и передаем ему в аргументы описание
 
 
-        int num1 = Integer.parseInt(words[0]), num2 = Integer.parseInt(words[2]); String oper = words[1];
-        if (num1 < 0 || num1 > 10 || num2 < 0 || num2 > 10){
-            throw new Exception("Калькулятор принимает только числа от 1 до 10 включительно");
-        }
+        int num1 = Integer.parseInt(words[0]), num2 = Integer.parseInt(words[2]);
 
-            switch (words[1]) {
-                case ("+"):
-                    System.out.println((num1) + (num2));
-                    break;
-                case ("-"):
-                    System.out.println((num1) - (num2));
-                    break;
-                case ("*"):
-                    System.out.println((num1) * (num2));
-                    break;
-                case ("/"):
-                    System.out.println((num1) / (num2));
-                    break;
-                default:
-                    throw new IllegalArgumentException("Не верный знак операции");
-            }
-        }
+        Integer[] arabArray = new Integer[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        String[] romanArray = new String[]{"X", "IX", "VIII", "VII", "VI", "V", "IV", "III", "II", "I"};
+        System.out.println(ArrayUtils.contains(arabArray, num1));
+        System.out.println(ArrayUtils.contains(romanArray, num2));
+
+
     }
+}
 
 
-        
 
 
 
