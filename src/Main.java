@@ -22,7 +22,7 @@ public class Main {
             num2 = Integer.parseInt(words[2]);
             String oper = words[1];
 
-            if (num1 < 0 || num1 > 10 || num2 < 0 || num2 > 10) {
+            if (num1 < 1 || num1 > 10 || num2 < 1 || num2 > 10) {
                 throw new Exception("Калькулятор принимает только числа от 1 до 10 включительно");
             }
             int result = calc(num1, num2, oper);
@@ -34,7 +34,7 @@ public class Main {
             String oper = words[1];
             num1 = numRom1;
             num2 = numRom2;
-            if (num1 < 0 || num1 > 10 || num2 < 0 || num2 > 10) {
+            if (num1 < 1 || num1 > 10 || num2 < 1 || num2 > 10) {
                 throw new Exception("Калькулятор принимает только числа от 1 до 10 включительно");
 
             }
