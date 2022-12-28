@@ -39,13 +39,16 @@ public class Main {
 
             }
             int result = calc(num1, num2, oper);
-            if (result < 1 ) {
+            if (result < 0) {
                 throw new Exception("В римской системе нет отрицательных чисел");
             }
             String resultRom = Roman.convertToRoman(result);
             System.out.println(resultRom);
-
         }
+            if (num1 < 1 || num1 > 10 || num2 < 1 || num2 > 10) {
+                throw new Exception("Калькулятор принимает только числа от 1 до 10 включительно");
+
+            }
         else if (Roman.isRoman(words[0]) && !Roman.isRoman(words[2]) || !Roman.isRoman(words[0]) && Roman.isRoman(words[2])) {
             throw new Exception("Одновременная работа возможна только или с арабскими, или с римскими числами");
         }
