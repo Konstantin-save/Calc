@@ -7,16 +7,16 @@ public class Main {
         String str = sc.nextLine(); //сканируем строку
 
         String[] words = str.split(" ");   //делим по пробелу
-        String a = words[0];
-        String b = words[2];
-
         int length = words.length;
         if (length != 3) {
             throw new LengthExeption("Формат математической операции не удовлетворяет заданию - два операнда и один оператор");
-        }     //выбрасываем созданное в методе LengthExeption исключение и передаем ему в аргументы описание
+        }
+        String a = words[0];
+        String b = words[2];
 
         int num1 = 0;
         int num2 = 0;
+
         if (!Roman.isRoman(words[0]) && !Roman.isRoman(words[2])) {
             num1 = Integer.parseInt(words[0]);
             num2 = Integer.parseInt(words[2]);
@@ -41,6 +41,9 @@ public class Main {
             int result = calc(num1, num2, oper);
             if (result < 0) {
                 throw new Exception("В римской системе нет отрицательных чисел");
+            }
+            if (result == 0) {
+                throw new Exception("В системе римских цифр отсутствует ноль");
             }
             String resultRom = Roman.convertToRoman(result);
             System.out.println(resultRom);
