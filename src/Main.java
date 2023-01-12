@@ -1,10 +1,15 @@
 import java.util.Scanner;
 public class Main {
 
+
     public static void main(String[] args) throws Exception {
         Scanner sc = new Scanner(System.in);
         System.out.println("Введите выражение: ");
         String str = sc.nextLine(); //сканируем строку
+        System.out.println(calc(str));
+    }
+
+    public static char[] calc(String str) throws Exception {
 
         String[] words = str.split(" ");   //делим по пробелу
         int length = words.length;
@@ -14,8 +19,8 @@ public class Main {
         String a = words[0];
         String b = words[2];
 
-        int num1 = 0;
-        int num2 = 0;
+        int num1;
+        int num2;
 
         if (!Roman.isRoman(words[0]) && !Roman.isRoman(words[2])) {
             num1 = Integer.parseInt(words[0]);
@@ -25,7 +30,7 @@ public class Main {
             if (num1 < 1 || num1 > 10 || num2 < 1 || num2 > 10) {
                 throw new Exception("Калькулятор принимает только числа от 1 до 10 включительно");
             }
-            int result = calc(num1, num2, oper);
+            int result = Sign(num1, num2, oper);
             System.out.println(result);
 
         } else if (Roman.isRoman(words[0]) && Roman.isRoman(words[2])) {
@@ -38,7 +43,7 @@ public class Main {
                 throw new Exception("Калькулятор принимает только числа от 1 до 10 включительно");
 
             }
-            int result = calc(num1, num2, oper);
+            int result = Sign(num1, num2, oper);
             if (result < 0) {
                 throw new Exception("В римской системе нет отрицательных чисел");
             }
@@ -47,16 +52,14 @@ public class Main {
             }
             String resultRom = Roman.convertToRoman(result);
             System.out.println(resultRom);
-        }
-            if (num1 < 1 || num1 > 10 || num2 < 1 || num2 > 10) {
-                throw new Exception("Калькулятор принимает только числа от 1 до 10 включительно");
-
-            }
-        else if (Roman.isRoman(words[0]) && !Roman.isRoman(words[2]) || !Roman.isRoman(words[0]) && Roman.isRoman(words[2])) {
+        } else {
             throw new Exception("Одновременная работа возможна только или с арабскими, или с римскими числами");
         }
+
+        return new char[0];
     }
-    public static int calc(int num1, int num2, String oper) {
+
+    public static int Sign(int num1, int num2, String oper) {
         int result;
         switch (oper) {
             case ("+"):
