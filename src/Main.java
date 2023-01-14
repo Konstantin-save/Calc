@@ -1,37 +1,27 @@
 import java.util.Scanner;
 public class Main {
-
-
     public static void main(String[] args) throws Exception {
         Scanner sc = new Scanner(System.in);
         System.out.println("Введите выражение: ");
         String str = sc.nextLine(); //сканируем строку
         System.out.println(calc(str));
     }
-
-    public static char[] calc(String str) throws Exception {
-
+    public static String calc(String str) throws Exception {
         String[] words = str.split(" ");   //делим по пробелу
         int length = words.length;
         if (length != 3) {
             throw new LengthExeption("Формат математической операции не удовлетворяет заданию - два операнда и один оператор");
         }
-        String a = words[0];
-        String b = words[2];
-
         int num1;
         int num2;
 
         if (!Roman.isRoman(words[0]) && !Roman.isRoman(words[2])) {
             num1 = Integer.parseInt(words[0]);
             num2 = Integer.parseInt(words[2]);
-            String oper = words[1];
 
             if (num1 < 1 || num1 > 10 || num2 < 1 || num2 > 10) {
                 throw new Exception("Калькулятор принимает только числа от 1 до 10 включительно");
             }
-            int result = Sign(num1, num2, oper);
-            System.out.println(result);
 
         } else if (Roman.isRoman(words[0]) && Roman.isRoman(words[2])) {
             int numRom1 = Roman.convertToArabian(words[0]);
@@ -41,7 +31,6 @@ public class Main {
             num2 = numRom2;
             if (num1 < 1 || num1 > 10 || num2 < 1 || num2 > 10) {
                 throw new Exception("Калькулятор принимает только числа от 1 до 10 включительно");
-
             }
             int result = Sign(num1, num2, oper);
             if (result < 0) {
@@ -51,14 +40,18 @@ public class Main {
                 throw new Exception("В системе римских цифр отсутствует ноль");
             }
             String resultRom = Roman.convertToRoman(result);
-            System.out.println(resultRom);
+            return resultRom;
         } else {
             throw new Exception("Одновременная работа возможна только или с арабскими, или с римскими числами");
         }
 
-        return new char[0];
+        String a = words[0];
+        String b = words[2];
+        String oper = words[1];
+        int result = Sign(num1, num2, oper);
+        String result1 = Integer.toString(result);
+        return result1;
     }
-
     public static int Sign(int num1, int num2, String oper) {
         int result;
         switch (oper) {
@@ -79,7 +72,6 @@ public class Main {
         }
         return result;
     }
-
     public static class Roman {
         static String[] romanArray = new String[]{
                 "0", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII", "XIII", "XIV", "XV",
@@ -89,7 +81,6 @@ public class Main {
                 "LXI", "LXII", "LXIII", "LXIV", "LXV", "LXVI", "LXVII", "LXVIII", "LXIX", "LXX", "LXXI", "LXXII", "LXXIII", "LXXIV", "LXXV",
                 "LXXVI", "LXXVII", "LXXVIII", "LXXIX", "LXXX", "LXXXI", "LXXXII", "LXXXIII", "LXXXIV", "LXXXV", "LXXXVI", "LXXXVII", "LXXXVIII", "LXXXIX", "XC",
                 "XCI", "XCII", "XCIII", "XCIV", "XCV", "XCVI", "XCVII", "XCVIII", "XCIX", "C"};
-
         public static boolean isRoman(String val) {
             for (int i = 0; i < romanArray.length; i++) {
                 if (val.equals(romanArray[i])) {
@@ -98,7 +89,6 @@ public class Main {
             }
             return false;
         }
-
         public static int convertToArabian(String roman) {
             for (int i = 0; i < romanArray.length; i++) {
                 if (roman.equals(romanArray[i])) {
@@ -107,7 +97,6 @@ public class Main {
             }
             return -1;
         }
-
         public static String convertToRoman(int arabian) {
             return romanArray[arabian];
         }
